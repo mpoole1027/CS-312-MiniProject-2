@@ -13,10 +13,6 @@
         <input class="submit" type="submit" value="Get Cocktail!">
     </form>
 
-    <script>
-        console.log("Result value:", "<%= JSON.stringify(locals.result) %>");
-    </script>
-
     <% if (locals.result){ %>
         <img src="<%= result.drinks[0].strDrinkThumb %>">
     <% } %>
