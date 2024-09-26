@@ -14,7 +14,29 @@
     </form>
 
     <% if (locals.result){ %>
+        <h1><%= result.drinks[0].strDrink %></h1>
         <img src="<%= result.drinks[0].strDrinkThumb %>">
+        <% var index = 1 %>
+        <% var isNotNull = true %>
+        <% var currentIngredient = ''%>
+        <% var currentMeasurement = ''%>
+
+        <% while (index<=15 && isNotNull) { %>
+            <% currentIngredient = "strIngredient" + index; %>
+            <% currentMeasurement = "strMeasure" + index; %>
+
+            <% if(result.drinks[0][currentIngredient]){ %>
+
+                <p><%= result.drinks[0][currentMeasurement] %> 
+                    <%= result.drinks[0][currentIngredient] %>
+                </p>
+
+            <% } else { %>
+                <% isNotNull = false; %>
+            <% } %>
+
+            <% index++ %>
+        <% } %>
     <% } %>
 </body>
 </html>

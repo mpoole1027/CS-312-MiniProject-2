@@ -20,7 +20,7 @@ app.get("/request", async (req, res) => {
     try{
         const response = await axios.get(`${API_URL}random.php`);
         result = response.data;
-        //console.log(result);
+        console.log(result);
         res.redirect('/');
     } catch (error) {
         console.error("Failed to make request:", error.message);
