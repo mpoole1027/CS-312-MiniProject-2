@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS-312-MiniProject-2</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1 class="title">Get Your Cocktail!!!!</h1>
+
+    <form class="generateButton" action="/request" method="GET">
+        <input class="submit" type="submit" value="Get Cocktail!">
+    </form>
+
+    <script>
+        console.log("Result value:", "<%= JSON.stringify(locals.result) %>");
+    </script>
+
+    <% if (locals.result){ %>
+        <img src="<%= result.drinks[0].strDrinkThumb %>">
+        <% for (var index = 0; index < results.drinks[0].length; index++) { %>
+    <% } %>
+</body>
+</html>
+
