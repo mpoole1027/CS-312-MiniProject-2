@@ -9,28 +9,38 @@
 <body>
     <h1 class="title">Get Your Cocktail!!!!</h1>
 
+    <!--This button allows me to submit the get request-->
     <form class="generateButton" action="/request" method="GET">
         <input class="submit" type="submit" value="Get Cocktail!">
     </form>
 
+    <!--This checks if the variable exists before it tries to use it-->
     <% if (locals.result){ %>
+        <!--The API returns an array so even with one element you have to grab the first-->
+        <!--Display the Name and Image of the cocktail-->
         <h1><%= result.drinks[0].strDrink %></h1>
         <img src="<%= result.drinks[0].strDrinkThumb %>">
+
+        <!--Set the variables to be used in the loop-->
         <% var index = 1 %>
         <% var isNotNull = true %>
         <% var currentIngredient = ''%>
         <% var currentMeasurement = ''%>
 
+        <!--Loop until the index is 15 OR until a null ingredient is found-->
         <% while (index<=15 && isNotNull) { %>
             <% currentIngredient = "strIngredient" + index; %>
             <% currentMeasurement = "strMeasure" + index; %>
 
+            <!--Check if the ingredient exists-->
             <% if(result.drinks[0][currentIngredient]){ %>
 
+                <!--Display the ingredient and measurement-->
                 <p><%= result.drinks[0][currentMeasurement] %> 
                     <%= result.drinks[0][currentIngredient] %>
                 </p>
 
+            <!--If it doesnt exist set variable to false to break loop-->
             <% } else { %>
                 <% isNotNull = false; %>
             <% } %>
