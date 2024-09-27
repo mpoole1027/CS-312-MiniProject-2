@@ -1,0 +1,9 @@
+body {
+    align-content: center;
+}
+
+img {
+    display: flex;
+    width: 20%;
+    height: 20%;
+}

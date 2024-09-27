@@ -7,10 +7,10 @@ const port = 3000;
 const API_URL = "http://www.thecocktaildb.com/api/json/v1/1/";
 var result = null;
 
-app.use(express.static("public"));
-
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
+
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     res.render("index.ejs", { result: result });
